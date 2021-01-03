@@ -1,0 +1,135 @@
+{
+  "id": "2061399",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "description",
+  "glyphs": [
+    {
+      "icon_id": "2019094",
+      "name": "学生",
+      "font_class": "xuesheng",
+      "unicode": "e7c0",
+      "unicode_decimal": 59328
+    },
+    {
+      "icon_id": "4933433",
+      "name": "学生",
+      "font_class": "xuesheng1",
+      "unicode": "e766",
+      "unicode_decimal": 59238
+    },
+    {
+      "icon_id": "5925272",
+      "name": "学生管理",
+      "font_class": "xueshengguanli",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "7504436",
+      "name": "学生管理",
+      "font_class": "xueshengguanli1",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "8574208",
+      "name": "学生异动",
+      "font_class": "xueshengyidong",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "8827518",
+      "name": "学生注册",
+      "font_class": "xueshengzhuce",
+      "unicode": "e717",
+      "unicode_decimal": 59159
+    },
+    {
+      "icon_id": "8833398",
+      "name": "学生照片管理",
+      "font_class": "xueshengzhaopianguanli",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "8839820",
+      "name": "学生自评",
+      "font_class": "xueshengziping",
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "14995865",
+      "name": "学生列表",
+      "font_class": "xueshengliebiao",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "18486347",
+      "name": "学生导入",
+      "font_class": "xueshengdaoru",
+      "unicode": "e7aa",
+      "unicode_decimal": 59306
+    },
+    {
+      "icon_id": "18493480",
+      "name": "学生成绩",
+      "font_class": "xueshengchengji",
+      "unicode": "e7df",
+      "unicode_decimal": 59359
+    },
+    {
+      "icon_id": "18957126",
+      "name": "align-justify",
+      "font_class": "align-justify",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "17280214",
+      "name": "icon_details",
+      "font_class": "icon_details",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "17029802",
+      "name": "g-审核",
+      "font_class": "g-shenhe",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "17029804",
+      "name": "xx__完结",
+      "font_class": "xx__wanjie",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "17029805",
+      "name": "007统计",
+      "font_class": "007tongji",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "17029806",
+      "name": "编制",
+      "font_class": "bianzhi",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "17029801",
+      "name": "2组织-项目管理",
+      "font_class": "2zuzhi-xiangmuguanli",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    }
+  ]
+}

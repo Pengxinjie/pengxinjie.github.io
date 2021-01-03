@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>软件工程3班点名系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/css.css">
+    <!-- Font! -->
+    <link rel="stylesheet" href="fonts/icon_font.css">
+    <!-- 设置整体页面布局:xadmin -->
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <!-- 页面背景导航 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script src="./js/excel_out.js"></script>
+    <script src="./js/excel_set.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/control.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/table_out.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+</head>
+
+<body>
+    <div class="all">
+        <!-- 顶部开始 -->
+        <div class="container">
+            <div class="open-nav"><i class="iconfont">&#xe645;</i></div>
+            <div class="logo1"><a href="#">目录</a></div>
+            <div class="logo2"><a href="#">- 软件工程3班点名系统 -</a></div>
+        </div>
+        <!-- 顶部结束 -->
+        <!-- 中部开始 -->
+        <div class="wrapper">
+            <!-- 左侧菜单开始 -->
+            <div class="left-nav">
+                <div id="side-nav">
+                    <ul id="nav">
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe7aa;</i>
+                                出勤点名
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe673;</i>
+                                学生管理
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe717;</i>
+                                学生注册
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe6a8;</i>
+                                学生自评
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe7aa;</i>
+                                学生课表
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe68c;</i>
+                                学生列表
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe651;</i>
+                                出勤情况
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="home_page.html">
+                                <i class="iconfont">&#xe67a;</i>
+                                课堂反馈
+                                <i class="iconfont nav_right">&#xe66e;</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 左侧菜单结束 -->
+            <!-- 右侧主体开始 -->
+            <div class="page-content">
+                <div class="content">
+                    <!-- 右侧内容框架，更改从这里开始 -->
+                    <form class="layui-form xbs">
+                        <div id="bdtts_div_id">
+                            <audio id="tts_autio_id" autoplay="autoplay">
+                            </audio>
+                        </div>
+                        <div class="layui-form-pane" style="text-align: center;">
+                            <div class="layui-form-item" style="display: inline-block;">
+                                <input type="file" id="stu_upload" style="display: none;"
+                                    onchange="importExcel(this,getStudents)" />
+                                <label class="layui-form-label xbs768">声音选择</label>
+                                <div class="layui-input-inline xbs768">
+                                    <select class="select_voice">
+                                        <option>-选择声音-</option> 
+                                        <option>-女声-</option>
+                                    </select>
+                                </div>
+                                <div class="btns_box layui-input-inline xbs768" style="width: 250px;">
+                                    <div class="layui-btn btn_L">慢速</div>
+                                    <div class="layui-btn btn_C">3</div>
+                                    <div class="layui-btn btn_R">快速</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="top">
+                        <button class="layui-btn" onclick="startName($('.btn_C').text())" id="start_name">开始点名</button>
+                        <button class="layui-btn" onclick="answerName()" id="answer_name">点人答题</button>
+                        <button class="layui-btn layui-btn-danger x-right" onclick="importStudent()">名单导入</button>
+                        <span class="x-right1" style="line-height:40px">共有人数：<span id="stu_sum">0</span>人,缺勤<span
+                                id="absence">0</span>人</span>
+                    </div>
+                    <div id="student_name" class="lists">
+                        <ul></ul>
+                    </div>
+                    <blockquote class="layui-elem-quote">
+                        注意：点击可标记为缺勤状态, 缺勤人数可导出到表格中。
+                        <button class="layui-btn x-right2" onclick="exportAbsence()">导出缺勤</button>
+                    </blockquote>
+                    <!-- 右侧内容框架，更改从这里结束 -->
+                </div>
+            </div>
+            <!-- 右侧主体结束 -->
+        </div>
+        <!-- 底部结束 -->
+        <!-- 背景切换开始 -->
+        <div class="bg-changer">
+            <div class="swiper-container changer-list">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img class="item" src="./images/a.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/b.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/c.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/d.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/e.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/f.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/g.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/h.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/i.jpg" alt=""></div>
+                    <div class="swiper-slide"><img class="item" src="./images/j.jpg" alt=""></div>
+                    <div class="swiper-slide"><span class="reset">初始化</span></div>
+                </div>
+            </div>
+            <div id="changer-set"><i class="iconfont">&#xe7c0;</i></div>
+        </div>
+        <div class="bottom">
+            <span>&copy; 第十九组-相信柯学&nbsp;&nbsp;</span>
+            <span>解释权归我们所有&nbsp;&nbsp;</span>
+            <span>电话:10086&nbsp;&nbsp;</span>
+            <a href="https://gitee.com/Wuyikun">联系我们</a>
+        </div>
+    </div>
+    <script>
+        function importStudent() {
+            $("#stu_upload").click()
+        }
+        let studentlist = []
+        function getStudents(ret) {
+            studentlist = []
+            $("#student_name ul").html("")
+            console.log("学生列表:", ret)
+            studentlist = JSON.parse(ret).map((item) => {
+                return {
+                    name: item,
+                    status: 1 //正常
+                }
+            })
+            let str = ""
+            studentlist.forEach((item, index) => {
+                $("#student_name ul").append(`<li class='back_color'><img src="./images/icon.png" onclick="changeBg(this,${index})"><span>${item.name}</span></li>`);
+            })
+            $("#stu_sum").html(studentlist.length)
+            $("#students").html(str)
+        }
+
+        //初始化
+        initData(getStudents)
+
+
+        function changeBg(obj, index) {
+            let str = ""
+            if (studentlist[index].status == 1) {
+                $(obj).attr("src", "./images/icon_hover.png")
+            } else {
+                $(obj).attr("src", "./images/icon.png")
+            }
+            studentlist[index].status = !studentlist[index].status
+            let absence_sum = studentlist.filter((item) => {
+                return item.status != 1
+            }).length
+            $("#absence").html(absence_sum)
+
+        }
+
+        function exportAbsence() {
+            let absenceList = studentlist.filter((item) => {
+                return item.status != 1
+            })
+            let str = "";
+            absenceList.forEach((item) => {
+                str += `<tr><td>${item.name}</td></tr>`
+            })
+            method5(str)
+        }
+
+        //定时器时间加
+        $('.btn_L').click(function () {
+            var time_l = parseInt($('.btn_C').text());
+            if (time_l < 10) {
+                time_l += 1;
+                $('.btn_C').text(time_l);
+            }
+        });
+
+        //定时器时间减
+        $('.btn_R').click(function () {
+            var time_R = parseInt($('.btn_C').text());
+            if (time_R > 1) {
+                time_R -= 1;
+                $('.btn_C').text(time_R);
+            }
+        });
+        
+        // //查看接口
+        // function getaudio() {
+        //     var xmlhttp;
+        //     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        //         xmlhttp = new XMLHttpRequest();
+        //     }
+        //     else {// code for IE6, IE5
+        //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        //     }
+        //     xmlhttp.open("GET", "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=4&text=", true)
+        //     xmlhttp.send();
+        // }
+    </script>
+</body>
+
+</html>

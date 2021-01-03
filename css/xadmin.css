@@ -1,0 +1,310 @@
+@charset "utf-8";
+/* 导入layui框架 */
+@import url(../lib/layui/css/layui.css);
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "三极瑚琏简体","三极榜书",Arial,sans-serif;
+}
+ 
+a{
+	text-decoration: none;
+}
+
+body{
+	width: 100%;
+	background-image: url("../images/f.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.all{
+	height: 900px;
+}
+
+						/* 背景设置开始 */
+.bg-changer{
+	position: fixed;
+	left: 0px;
+	top: -110px;
+	width: 100%;
+}
+
+/* 右侧悬浮球(.bg-changer)---切换背景 */
+.bg-changer #changer-set{
+	/* 按钮固定 */
+	position: fixed;
+	top: 121px;
+	right: 0px;
+	width: 33px;
+	height: 33px;
+	background: rgba(0,0,0,0.5);
+	border: 1px solid rgba(255,255,255, 0.3);
+	border-radius: 50%;
+	border-top: 0px;
+	color: #fff;
+	text-align: center;
+	line-height: 33px;
+	cursor: pointer;
+}
+
+/* 右侧按钮动画 */
+@keyframes play{
+	0%  {
+	    transform:rotateZ(0deg);
+	}
+	100% {
+	    transform:rotateZ(360deg);
+	}
+}
+
+/* 设置悬浮球---旋转动画 */
+.bg-changer #changer-set i{
+	display: block;
+	font-size: 25px;
+	/* 设置默认样式，开启3d硬件加速 */
+    transform:translate3d(0,0,0);
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infinite为循环播放; */
+    animation:play 3s linear infinite;
+}
+
+/* 背景列表---.changer-list */
+.bg-changer .changer-list{
+	width: 100%;
+	height: 100px;
+	padding-top: 10px;
+	background: rgba(0,0,0,0.5);
+	border: 1px solid rgba(255,255,255, 0.3);
+}
+.bg-changer .changer-list .swiper-slide{
+	width: 80px;
+}
+.bg-changer .changer-list img.item{
+	width: 80px;
+	height: 80px;
+}
+.bg-changer .changer-list span{
+	display: block;
+	width: 80px;
+	height: 80px;
+	color: #fff;
+	text-align: center;
+	line-height: 80px;
+	background: #4390EE 0 0 no-repeat;
+}
+.bg-changer .bg-out{
+	width: 100%;
+	height: 900px;
+	background: red 0 0 no-repeat;
+	opacity: 0;
+	display: none;
+}
+
+						/* 背景设置结束 */
+
+						/* 选择按钮 */
+.layui-form-item{
+	margin-top: 33px;
+	margin-bottom: 35px;
+}
+						/* 声音选择 */
+.layui-form-pane .layui-form-label{
+	border-radius: 6px;
+	background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+	border-right: 0px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+						/* Container头部开始 */
+.container{
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	margin-bottom: 1px;
+	height: 109px
+}
+.container .open-nav{
+	float: left;
+	line-height: 1px;
+	padding-left: 10px;
+	display: none;
+	cursor: pointer;
+}
+.container .open-nav i{
+	font-size: 2em;
+	line-height: 120px;
+	cursor: pointer;
+}
+.container .logo1{
+	float: left;
+	color: #fff;
+	font-size: 25px;
+	padding-left: 20px;
+	line-height: 120px;
+}
+.container .logo2{
+	color: #fff;
+	font-size: 25px;
+	margin-left: 36%;
+	line-height: 120px;
+	font-size: 35px;
+}
+.container .right{
+	float: right;
+}
+						/* Container头部结束 */
+#student_name{
+	margin-top: 5px;
+	margin-bottom: 25px;
+}
+
+
+						/* Wrapper中部---左侧菜单开始 */
+.wrapper{
+
+	display: table;
+	position: relative;
+	top: -9px;
+	width: 100%;
+	height: 60%;
+}
+.wrapper .left-nav{
+	background-color: rgba(0, 0, 0, 0.20);
+    color: #FFF;
+    display: table-cell;
+    float: none !important;
+	vertical-align: top;
+}
+.wrapper .left-nav #nav li{
+	width: 250px;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.wrapper .left-nav #nav li:hover{
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.wrapper .left-nav #nav li a{
+	width: 230px;
+	color: #fff;
+	font-size: 14px;
+	padding: 15px 0px 15px 20px;
+	display: block;
+}
+.wrapper .left-nav #nav li a i{
+	padding-right: 10px;
+	line-height: 16px;
+}
+.wrapper .left-nav #nav li .nav_right{
+	float: right;
+	margin-top: 3px;
+	font-size: 16px;
+}
+						/* Wrapper中部---左侧菜单结束 */
+
+
+						/* Wrapper中部---右侧主体开始 */
+.wrapper .page-content{
+	color: #FFF;
+	padding: 20px 30px 0px 30px;
+	margin: 0;
+    display: table-cell;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.content{
+	height: 150px;
+}
+						/* Wrapper中部---右侧主体结束 */
+						
+						/* 两横框开始 */
+.x-right1,.layui-btn-danger{
+	float: right;
+}
+
+.x-right2{
+	float: right;
+	position: relative;
+	right: -9px;
+	bottom: 9px;
+	background-color: rgb(242,90,35);
+}
+
+.layui-elem-quote{
+	margin-top: 12px;
+	line-height: 20px;
+	height: 20px;
+	position: relative;
+	top: 3px;
+}
+						/* 两横框结束 */
+
+.top{
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    line-height: 22px;
+    border-left: 5px solid #009688;
+    border-radius: 0 5px 5px 0;
+    background-color: rgba(0,0,0,0.2);
+}
+
+						/* bottom-start */
+.bottom{
+	text-align: center;
+	line-height: 45px;
+	background-color: rgba(0,0,0,0.2);
+	position: relative;
+	top: 10px;
+	font-size: 20px;
+	height: 45px;
+}
+
+						/* bottom-end */
+
+						/* 页面大小变化产生的影响 */
+
+@media screen and (max-width: 1024px){
+	.wrapper .left-nav{
+		width: 0px;
+	}
+	.wrapper .left-nav #side-nav{
+		display: block;
+	}
+	.container .open-nav{
+		display: block;
+	}
+}
+
+@media screen and (min-width: 1024px){
+	.wrapper .left-nav{
+		width: 250px;
+	}
+	.wrapper .left-nav #side-nav{
+		display: block;
+	}
+	.container .open-nav{
+		display: block;
+	}
+}
+
+
+@media screen and (max-width: 900px){
+	.xbs768{
+		display: none;
+	}
+	.x-right1{
+		display: none;
+	}
+	.x-right2{
+		display: none;
+	}
+	.logo2{
+		display: none;
+	}
+	.top{
+		display: none;
+	}
+}
